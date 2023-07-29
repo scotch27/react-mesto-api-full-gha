@@ -1,0 +1,18 @@
+.places__basket-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url(../../../images/symbols/basket.svg);
+    cursor: pointer;
+    border: none;
+    transition: 0.4s linear;
+    flex-shrink: 0;
+}
+
+.places__basket-button:hover {
+    opacity: 0.6;
+}

@@ -1,0 +1,18 @@
+.login__enter {
+    background: #FFFFFF;
+    border-radius: 2px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    min-width: 358px;
+    min-height: 50px;
+    font-style: normal;
+    text-align: center;
+    padding: 0;
+    margin-top: 216px;
+    border: 0;
+    cursor: pointer;
+    transition: 0.4s linear;
+}

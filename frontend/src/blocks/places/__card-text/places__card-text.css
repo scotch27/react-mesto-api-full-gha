@@ -1,0 +1,17 @@
+.places__card-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 27px 20px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 618px) {
+    .places__card-text {
+        padding: 25px 21px 25px;
+    }
+}

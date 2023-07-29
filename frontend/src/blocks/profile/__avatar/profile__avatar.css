@@ -1,0 +1,11 @@
+.profile__avatar {
+    background-image: url("../../../images/symbols/pencil.png");
+    width: 120px;
+    height: 120px;
+    display: flex;
+    margin: 0 30px 20px 0;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+}

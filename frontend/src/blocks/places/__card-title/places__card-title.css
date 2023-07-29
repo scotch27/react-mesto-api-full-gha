@@ -1,0 +1,17 @@
+.places__card-title {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 618px) {
+    .places__card-title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 29px;
+    }
+}

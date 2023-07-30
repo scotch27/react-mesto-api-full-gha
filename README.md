@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.112.74
+IP 62.84.112.74
 
 Frontend https://mesto-front.nomoredomains.sbs
 

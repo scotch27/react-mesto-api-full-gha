@@ -1,4 +1,5 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+// export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://mesto-back.nomoredomains.sbs";
 
 class Auth {
   constructor(options) {

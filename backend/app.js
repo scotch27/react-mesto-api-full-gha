@@ -9,6 +9,7 @@ const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./utils/errors/notFoundError');
 const errorsHandler = require('./middlewares/errorHandler');
 const auth = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { validateLogin, validateRegister } = require('./utils/validators/userValidator');
 
@@ -22,6 +23,7 @@ const limiter = rateLimit({
 });
 
 const app = express();
+app.use(cors);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

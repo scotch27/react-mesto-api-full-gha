@@ -1,3 +1,8 @@
+
+// export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://mesto-back.nomoredomains.sbs";
+// export const BASE_URL = "http://localhost:2000";
+
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
@@ -5,7 +10,9 @@ class Api {
   }
 
   getInitialCards() {
-    return this._request(`/cards`, { headers: this._headers });
+    const data = this._request(`/cards`, { headers: this._headers });
+    console.log(data);
+    return data;
   }
 
   setCard(data) {
@@ -68,20 +75,18 @@ class Api {
   }
 
   _request(url, options) {
-    return fetch(`${this._baseUrl}${url}`, options).then(this._handleResponse);
+    console.log(options);
+    const res =  fetch(`${this._baseUrl}${url}`, options).then(this._handleResponse);
+    console.log(res);
+    return res;
   }
 }
 
-// Взаимодействие с API
-// const api = new Api({
-//   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-64",
-//   headers: {
-//     authorization: "773b24e9-0eee-4683-86ca-3d3c2a4eb53a",
-//     "Content-Type": "application/json",
-//   },
-// });
-
 const api = new Api({
-  baseUrl: "https://mesto-back.nomoredomains.sbs",
+  baseUrl: BASE_URL,
+  headers: {
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    "Content-Type": "application/json",
+  },
 });
 export default api;

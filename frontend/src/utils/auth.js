@@ -1,5 +1,4 @@
-// export const BASE_URL = "https://auth.nomoreparties.co";
-export const BASE_URL = "https://mesto-back.nomoredomains.sbs";
+import {BASE_URL} from "./api";
 
 class Auth {
   constructor(options) {
@@ -57,6 +56,7 @@ const auth = new Auth({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 

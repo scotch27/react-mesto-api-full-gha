@@ -7,6 +7,7 @@ const USER_REF = ['owner', 'likes'];
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
+    .sort([['createdAt', -1]])
     .populate(USER_REF)
     .then((cards) => res.send(cards))
     .catch((error) => next(error));

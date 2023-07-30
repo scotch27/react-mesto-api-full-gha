@@ -157,7 +157,7 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            setUserData({ email: res.data.email });
+            setUserData({ email: res.email });
             setLoggedIn(true);
             navigate("/", { replace: true });
           }
@@ -184,6 +184,7 @@ function App() {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cards]) => {
           setCurrentUser(userData);
+          console.log(cards);
           setCards(cards);
         })
         .catch(console.error);

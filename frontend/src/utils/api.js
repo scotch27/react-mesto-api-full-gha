@@ -10,9 +10,7 @@ class Api {
   }
 
   getInitialCards() {
-    const data = this._request(`/cards`, { headers: this._headers });
-    console.log(data);
-    return data;
+    return this._request(`/cards`, { headers: this._headers });
   }
 
   setCard(data) {
@@ -75,10 +73,7 @@ class Api {
   }
 
   _request(url, options) {
-    console.log(options);
-    const res =  fetch(`${this._baseUrl}${url}`, options).then(this._handleResponse);
-    console.log(res);
-    return res;
+    return fetch(`${this._baseUrl}${url}`, options).then(this._handleResponse);
   }
 }
 

@@ -10,13 +10,13 @@ class Api {
   }
 
   getInitialCards() {
-    return this._request(`/cards`, { headers: this._headers });
+    return this._request(`/cards`, { headers: this._headers() });
   }
 
   setCard(data) {
     return this._request(`/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: this._headers(),
       body: JSON.stringify(data),
     });
   }
@@ -24,32 +24,32 @@ class Api {
   deleteCard(cardId) {
     return this._request(`/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: this._headers(),
     });
   }
 
   likeCard(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
+      headers: this._headers(),
     });
   }
 
   dislikeCard(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: this._headers(),
     });
   }
 
   getUserInfo() {
-    return this._request(`/users/me`, { headers: this._headers });
+    return this._request(`/users/me`, { headers: this._headers() });
   }
 
   setUserInfo(userInfo) {
     return this._request(`/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._headers(),
       body: JSON.stringify(userInfo),
     });
   }
@@ -57,7 +57,7 @@ class Api {
   setAvatar(avatarLink) {
     return this._request(`/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._headers(),
       body: JSON.stringify({
         avatar: avatarLink,
       }),
@@ -79,9 +79,12 @@ class Api {
 
 const api = new Api({
   baseUrl: BASE_URL,
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    "Content-Type": "application/json",
-  },
+  headers: (() => {
+    return {
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      "Content-Type": "application/json",
+    }
+  }),
 });
+
 export default api;

@@ -28,12 +28,11 @@ app.use(cors);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(helmet());
+app.use(requestLogger); // подключаем логгер запросов
 app.use(limiter);
 
 // подключаемся к серверу mongo
 mongoose.connect(DB_URL);
-
-app.use(requestLogger); // подключаем логгер запросов
 
 // Краш-тест сервера
 app.get('/crash-test', () => {

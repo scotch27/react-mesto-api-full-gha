@@ -9,7 +9,7 @@ const { JWT_SECRET } = require('../utils/constants');
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((user) => res.send(user))
-    .catch((error) => next(error));
+    .catch(next);
 };
 
 module.exports.getUser = (req, res, next) => {

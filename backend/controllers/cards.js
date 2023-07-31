@@ -10,7 +10,7 @@ module.exports.getCards = (req, res, next) => {
     .sort([['createdAt', -1]])
     .populate(USER_REF)
     .then((cards) => res.send(cards))
-    .catch((error) => next(error));
+    .catch(next);
 };
 
 module.exports.deleteCard = (req, res, next) => {
@@ -23,7 +23,8 @@ module.exports.deleteCard = (req, res, next) => {
         throw new ForbiddenError('Нельзя удалять чужие карточки');
       }
       Card.deleteOne(card)
-        .then(() => res.send({ message: 'Карточка успешно удалена' }));
+        .then(() => res.send({ message: 'Карточка успешно удалена' }))
+        .catch(next);
     })
     .catch((error) => {
       if (error.name === 'CastError') {
